@@ -72,6 +72,12 @@ async function main() {
 `;
 
     writeFile(sessionFile, template);
+    // Security: Set restrictive permissions (owner read/write only)
+    try {
+      fs.chmodSync(sessionFile, 0o600);
+    } catch (err) {
+      // Ignore chmod errors on Windows or filesystems that don't support it
+    }
     log(`[SessionEnd] Created session file: ${sessionFile}`);
   }
 

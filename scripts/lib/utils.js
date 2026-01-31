@@ -413,6 +413,7 @@ module.exports = {
   // System
   commandExists,
   runCommand,
+  runSafeCommand,
   isGitRepo,
   getGitModifiedFiles
 };
